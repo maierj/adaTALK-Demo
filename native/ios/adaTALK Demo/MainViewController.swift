@@ -10,14 +10,37 @@ import Foundation
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    private let dummyLabel = UILabel()
 
     init() {
         super.init(nibName: nil, bundle: nil)
         
-        view.backgroundColor = .red
+        addSubviews()
+        setupSubviews()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func addSubviews() {
+        view.addSubview(dummyLabel)
+    }
+    
+    private func setupSubviews() {
+        view.backgroundColor = .white
+        
+        dummyLabel.text = "adaTALK Demo"
+    }
+    
+    private func setupConstraints() {
+        dummyLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            dummyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            dummyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
 }
